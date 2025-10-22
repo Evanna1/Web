@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>27组-智能膳食规划助手</title>
+  <style>
+    body {font-family: 'Helvetica Neue', Arial, sans-serif; background: #f9fafb; margin: 0; color: #333;}
+    header {background: #4CAF50; color: white; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center;}
+    header h1 {margin: 0; font-size: 1.6rem;}
+    nav a {color: white; text-decoration: none; margin-left: 20px;}
+    nav a:hover {text-decoration: underline;}
+    main {max-width: 900px; margin: 40px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);}
+    h2 {color: #4CAF50;}
+    h3 {margin-top: 30px;}
+    .question {margin-bottom: 25px;}
+    .question p {font-weight: bold; margin-bottom: 8px;}
+    .options div {margin-left: 20px; line-height: 1.8; cursor:pointer;}
+    .options div.selected {background-color: #d4f0d4;}
+    input[type=number] {width: 40px; margin-left: 10px;}
+    button {background-color: #4CAF50; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer;}
+    button:hover {background-color: #45a049;}
+    footer {text-align: center; padding: 20px; color: #777; margin-top: 40px;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Traffic Tighten 智能膳食规划助手</h1>
+    <nav>
+      <a href="#">主页</a>
+      <a href="#questionnaire">问卷调查</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>项目简介</h2>
+    <p>开发一款移动应用，帮助用户简化每周的膳食计划、自动生成购物清单，并根据用户的饮食偏好和预算推荐食谱，从而减少食物浪费，让健康饮食变得更轻松。</p>
+
+    <h2 id="questionnaire">用户问卷</h2>
+    <p>本问卷旨在收集用户的饮食习惯、购物行为和膳食规划偏好，以便我们更好地优化应用设计。感谢您的参与！</p>
+
+    <!-- 第一部分：基本信息 -->
+    <h3>第一部分：基本信息</h3>
+    <div class="question">
+      <p>1. 您的年龄段是？</p>
+      <div class="options">
+        <div>A. 18-24岁</div>
+        <div>B. 25-34岁</div>
+        <div>C. 35-44岁</div>
+        <div>D. 45岁及以上</div>
+      </div>
+    </div>
+    <div class="question">
+      <p>2. 您目前的居住状态是？</p>
+      <div class="options">
+        <div>A. 独自居住</div>
+        <div>B. 与伴侣/配偶同住</div>
+        <div>C. 与家人（含子女）同住</div>
+        <div>D. 与室友合租</div>
+      </div>
+    </div>
+    <div class="question">
+      <p>3. 您的家庭平均每周在食物上的开销大约是多少？</p>
+      <div class="options">
+        <div>A. ¥200以下</div>
+        <div>B. ¥200 - ¥500</div>
+        <div>C. ¥501 - ¥1000</div>
+        <div>D. ¥1000以上</div>
+      </div>
+    </div>
+    <div class="question">
+      <p>4. 您是否有特殊的饮食需求？（可多选）</p>
+      <div class="options">
+        <div>A. 无</div>
+        <div>B. 素食/纯素</div>
+        <div>C. 减肥/健身（低脂、高蛋白等）</div>
+        <div>D. 食物过敏（如海鲜、坚果等）</div>
+        <div>E. 其他（请注明）__________</div>
+      </div>
+    </div>
+
+    <!-- 第二部分：行为与习惯 -->
+    <h3>第二部分：行为与习惯</h3>
+    <div class="question">
+      <p>5. 在过去的一个月里，您平均每周有几天是在家做饭的？</p>
+      <div class="options">
+        <div>A. 0-1天</div>
+        <div>B. 2-3天</div>
+        <div>C. 4-5天</div>
+        <div>D. 6-7天</div>
+      </div>
+    </div>
+    <div class="question">
+      <p>6. 您通常在什么时候决定晚餐吃什么？</p>
+      <div class="options">
+        <div>A. 当天快到饭点时才想</div>
+        <div>B. 当天早上或中午</div>
+        <div>C. 提前1-2天</div>
+        <div>D. 提前规划好一周的大部分晚餐</div>
+      </div>
+    </div>
+    <div class="question">
+      <p>7. 您获取食谱最主要的渠道是？</p>
+      <div class="options">
+        <div>A. 食谱App（如下厨房、豆果美食）</div>
+        <div>B. 短视频平台（如抖音、快手）</div>
+        <div>C. 社交分享平台（如小红书、微博）</div>
+        <div>D. 搜索引擎（如百度、谷歌）</div>
+        <div>E. 询问家人或朋友</div>
+      </div>
+    </div>
+    <div class="question">
+      <p>8. 您去超市购物的频率大约是？</p>
+      <div class="options">
+        <div>A. 几乎每天</div>
+        <div>B. 每周2-3次</div>
+        <div>C. 每周1次</div>
+        <div>D. 每两周或更长时间1次</div>
+      </div>
+    </div>
+    <div class="question">
+      <p>9. 在准备一顿家常便饭时，您希望花费的总时间是？</p>
+      <div class="options">
+        <div>A. 30分钟以内</div>
+        <div>B. 30-60分钟</div>
+        <div>C. 60-90分钟</div>
+        <div>D. 90分钟以上</div>
+      </div>
+    </div>
+
+    <!-- 第三部分：态度与偏好 -->
+    <h3>第三部分：态度与偏好</h3>
+    <div class="question">
+      <p>10. 请用1-5分来评价以下因素在您选择食谱时的重要性（1=完全不重要，5=非常重要）：</p>
+      <div class="options">
+        <div>烹饪时间：<input type="number" min="1" max="5"></div>
+        <div>食材成本：<input type="number" min="1" max="5"></div>
+        <div>健康营养：<input type="number" min="1" max="5"></div>
+        <div>菜品口味：<input type="number" min="1" max="5"></div>
+        <div>操作难度：<input type="number" min="1" max="5"></div>
+      </div>
+    </div>
+    <div class="question">
+      <p>11. 在多大程度上，您同意“提前规划膳食有助于减少食物浪费”？</p>
+      <div class="options">
+        <div>A. 完全不同意</div>
+        <div>B. 比较不同意</div>
+        <div>C. 不确定</div>
+        <div>D. 比较同意</div>
+        <div>E. 完全同意</div>
+      </div>
+    </div>
+    <div class="question">
+      <p>12. 当您计划用餐时，以下哪个挑战是您最常遇到的？</p>
+      <div class="options">
+        <div>A. 不知道该做什么吃</div>
+        <div>B. 没有时间购物或烹饪</div>
+        <div>C. 很难满足家里每个人的口味</div>
+        <div>D. 难以控制预算</div>
+        <div>E. 担心营养不均衡</div>
+      </div>
+    </div>
+    <div class="question">
+      <p>13. 您是否愿意付费使用一款能极大简化您膳食规划和购物流程的应用？</p>
+      <div class="options">
+        <div>A. 非常愿意</div>
+        <div>B. 可能会，取决于价格和功能</div>
+        <div>C. 不太愿意</div>
+        <div>D. 完全不愿意</div>
+      </div>
+    </div>
+    <div class="question">
+      <p>14. 您希望一款膳食规划应用能和以下哪些服务打通？（可多选）</p>
+      <div class="options">
+        <div>A. 生鲜电商平台（如叮咚买菜、盒马）</div>
+        <div>B. 智能音箱（用于语音播报菜谱）</div>
+        <div>C. 智能冰箱（用于管理库存）</div>
+        <div>D. 健康管理App（用于同步卡路里等数据）</div>
+        <div>E. 不需要与其他服务打通</div>
+      </div>
+    </div>
+    <div class="question">
+      <p>15. 对于我们的膳食规划应用，您最期待它解决以下哪个问题？</p>
+      <div class="options">
+        <div>A. 推荐新奇美味的食谱</div>
+        <div>B. 根据冰箱里现有的食材推荐菜谱</div>
+        <div>C. 制定符合健康目标的周度营养餐单</div>
+        <div>D. 快速生成购物清单并能一键下单</div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:30px;">
+      <button onclick="submitQuestionnaire()">提交问卷</button>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2025 xxx小组 | Traffic Tighten 智能膳食规划助手</p>
+  </footer>
+
+  <script>
+    function submitQuestionnaire() {
+      const questions = document.querySelectorAll('.question');
+      let csvContent = "data:text/csv;charset=utf-8,题号,题目,答案\r\n";
+
+      questions.forEach((q, index) => {
+        const qText = q.querySelector('p').innerText.replace(/,/g, '，');
+        const inputs = q.querySelectorAll('input[type=number]');
+        let answer = '';
+
+        if (inputs.length > 0) {
+          // 数值输入
+          let values = [];
+          inputs.forEach(input => { values.push(input.value || ''); });
+          answer = values.join(';');
+        } else {
+          // 选项点击选择
+          const selected = q.querySelectorAll('.selected');
+          if(selected.length > 0){
+            answer = Array.from(selected).map(s => s.innerText).join(';');
+          } else {
+            answer = '';
+          }
+        }
+
+        csvContent += `${index+1},${qText},${answer}\r\n`;
+      });
+
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", "questionnaire_data.csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      alert("问卷已导出为 CSV 文件！");
+    }
+
+    // 为选项添加点击选择效果
+    document.querySelectorAll('.options div').forEach(option => {
+      option.addEventListener('click', function() {
+        if(this.parentNode.querySelectorAll('.selected').length === 1 && this.classList.contains('selected') && !this.parentNode.classList.contains('multi')){
+          // 单选取消已选
+          return;
+        }
+        if(this.parentNode.classList.contains('multi')){
+          this.classList.toggle('selected');
+        } else {
+          const siblings = this.parentNode.querySelectorAll('div');
+          siblings.forEach(s => s.classList.remove('selected'));
+          this.classList.add('selected');
+        }
+      });
+    });
+
+    // 标记多选题
+    document.querySelectorAll('.question').forEach(q=>{
+      if(q.querySelector('p').innerText.includes('可多选')){
+        q.querySelector('.options').classList.add('multi');
+      }
+    });
+  </script>
+</body>
+</html>
