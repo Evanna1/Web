@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>人机交互实验课作业5</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12pt;
+            line-height: 1.5;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .chart-container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        .affinity-diagram {
+            border: 1px solid #eee;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .affinity-group h4 {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: left;
+        }
+        .affinity-group ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .affinity-group li {
+            background-color: #ecf0f1;
+            margin-bottom: 8px;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+        }
+        p {
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>人机交互实验课作业5</h1>
+        <p><b>项目描述:</b> 本项目旨在分析公开的人口统计数据，并通过用户研究方法，探究普通用户在接触和理解这些数据时的行为与痛点。</p>
+        <p><b>项目网站链接:</b> <a href="https://evanna1.github.io/Web/">https://evanna1.github.io/Web/</a></p>
+    </div>
+
+    <div class="section">
+        <h2>1. 调查分析</h2>
+        <p>
+            在本次数据分析中，我们以美国各州的人口统计数据作为基础调查数据。这类公开数据是了解宏观社会结构的重要来源。为了直观地展示各州人口的分布情况，我们采用了饼状图进行可视化，清晰地揭示了人口高度集中在少数几个州的现象。
+        </p>
+        <div class="chart-container">
+            <canvas id="populationChart"></canvas>
+        </div>
+        <h3>发现与洞察</h3>
+        <p>
+            通过数据可视化，我们发现加利福尼亚、德克萨斯和佛罗里达这三个州的人口总数占据了全美相当大的比重。这一点令人印象深刻，它直观地体现了美国人口分布的高度不均衡性。另一个有趣的发现是，传统意义上的人口大州（如纽约州）虽然总量依然可观，但其领先优势已不如从前。这促使我们思考，当普通用户面对这些数据时，他们能否轻松地得出相同的结论？他们在使用这些公共数据平台时会遇到什么困难？这构成了我们第二部分研究的出发点。
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>2. 亲和图</h2>
+        <p>
+            鉴于我们的第一部分数据为客观统计数据，无法进行传统访谈，我们设定了一个相关的研究情境：探究普通用户在访问和理解政府或机构发布的线上人口数据报告时的体验和障碍。我们的数据来源于对网络论坛、社交媒体评论和相关文章的用户反馈进行的收集与整理，模拟了定性研究中的原始数据采集过程。
+        </p>
+        
+        <h3>最终亲和图</h3>
+        <div class="affinity-diagram">
+            <div class="affinity-group">
+                <h4>主题一: 数据可及性与导航障碍</h4>
+                <ul>
+                    <li>“网站菜单太复杂了，我就是想找个简单的州人口数字，点进去像个迷宫。”</li>
+                    <li>“搜索功能基本没用，搜‘加州人口’出来一堆不相关的报告。”</li>
+                    <li>“到处都是专业术语和缩写，普通人根本看不懂。”</li>
+                    <li>“我只是想下载一个简单的Excel表格，但网站只提供PDF格式。”</li>
+                </ul>
+            </div>
+            <div class="affinity-group">
+                <h4>主题二: 信息过载与理解困难</h4>
+                <ul>
+                    <li>“一上来就是密密-密麻麻的表格，看得我头晕，完全没有重点。”</li>
+                    <li>“图表是静态的，不能交互，我想看具体某个点的数据都不行。”</li>
+                    <li>“数据缺乏上下文解释，我不知道这个增长率是高还是低。”</li>
+                    <li>“数据没有可视化，就是一堆干巴巴的数字，很难形成直观感受。”</li>
+                </ul>
+            </div>
+            <div class="affinity-group">
+                <h4>主题三: 信任缺失与功能期望</h4>
+                <ul>
+                    <li>“网站看起来太老旧了，让我怀疑这些数据的准确性。”</li>
+                    <li>“没有明确标明数据来源和更新日期，我不敢在我的报告里引用。”</li>
+                    <li>“为什么不能提供一个简单的比较工具？我想对比两个州的人口变化趋势。”</li>
+                    <li>“希望能有一个‘为我解读’的功能，用大白话告诉我这些数据说明了什么。”</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h3>发现与洞察</h3>
+        <p>
+            通过构建亲和图，我们对用户与线上公共数据的交互有了更深刻的理解。最核心的主题是“认知鸿沟”——即数据发布者（通常是专家）和数据使用者（通常是普通民众）之间存在巨大的认知差距。发布者倾向于全面、严谨地展示所有数据，而用户则需要快速、易于理解的结论和洞察。最让我惊讶的一点是，网站的视觉设计和易用性竟直接影响了用户对数据本身的信任度。一个看起来“老旧”或“难用”的网站，会让用户本能地怀疑其背后数据的可靠性。这告诉我们，在人机交互设计中，界面不仅仅是美观问题，它更是建立用户信任的桥梁。未来的公共数据平台应更注重“翻译”和“解读”功能，而非仅仅是数据的“陈列”。
+        </p>
+
+        <h3>拓展可视化示例：人口年龄分布</h3>
+        <p>
+            为了直接回应亲和图中用户关于“信息过载”和“缺乏可视化”的抱怨，我们基于公开数据创建了以下美国人口年龄分布图。这种条形图将复杂的年龄结构数据转化为一目了然的视觉形式，用户可以快速了解社会中青年、中年、老年人口的比例，这远比阅读原始数据表格要高效和直观得多。这正是满足用户“功能期望”的一个具体范例。
+        </p>
+        <div class="chart-container">
+            <canvas id="ageDistributionChart"></canvas>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>贡献者</h2>
+        <p><b>调查分析部分 (数据可视化与初步洞察):</b> 戴梦琪</p>
+        <p><b>亲和图部分 (网络数据收集、整理与分析):</b> 郝嘉琦</p>
+        <p><b>报告整合与审阅:</b> 王旻轩, 王鹏飞</p>
+    </div>
+
+    <script>
+        // Chart 1: State Population Pie Chart
+        const ctxPie = document.getElementById('populationChart').getContext('2d');
+        const populationChart = new Chart(ctxPie, {
+            type: 'pie',
+            data: {
+                labels: ['加利福尼亚州', '德克萨斯州', '佛罗里达州', '纽约州', '宾夕法尼亚州', '伊利诺伊州', '俄亥俄州', '佐治亚州', '北卡罗来纳州', '密歇根州', '其他州'],
+                datasets: [{
+                    label: '人口',
+                    data: [39237836, 30029572, 22244823, 19677151, 12972008, 12671469, 11756058, 10912876, 10698973, 10034113, 150000000],
+                    backgroundColor: [
+                        '#e74c3c', '#3498db', '#f1c40f', '#2ecc71', '#9b59b6', 
+                        '#e67e22', '#1abc9c', '#34495e', '#d35400', '#c0392b', '#7f8c8d'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: '美国各州人口数据可视化',
+                        font: { size: 16, family: "'Times New Roman', Times, serif" }
+                    }
+                }
+            }
+        });
+
+        // Chart 2: Age Distribution Bar Chart
+        const ctxBar = document.getElementById('ageDistributionChart').getContext('2d');
+        const ageDistributionChart = new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: ['0-17岁', '18-24岁', '25-34岁', '35-44岁', '45-54岁', '55-64岁', '65岁以上'],
+                datasets: [{
+                    label: '人口占比 (%)',
+                    data: [22.1, 9.8, 13.6, 12.5, 12.0, 12.4, 17.6], // Sample data based on recent estimates
+                    backgroundColor: '#2ecc71',
+                    borderColor: '#27ae60',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y', // Makes the bar chart horizontal for better readability
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: '美国人口年龄分布结构',
+                        font: { size: 16, family: "'Times New Roman', Times, serif" }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%'
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
